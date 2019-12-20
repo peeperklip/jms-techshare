@@ -3,18 +3,19 @@
 require_once __DIR__ . '/bootstrap.php';
 
 //Serialize
-$opelAstra = new Car('Opel', 'Astra');
-$jsonData = $serializer->serialize($opelAstra, 'json');
-$xmlData = $serializer->serialize($opelAstra, 'xml');
+$car = new Car('Opel', 'Astra');
 
 //Schrijf het resultaat naar een file
-file_put_contents("xmldata.xml", $xmlData);
-file_put_contents("jsondata.json", $jsonData);
+file_put_contents("xmldata.xml", $car->toXml());
+file_put_contents("jsondata.json", $car->toJson());
 
 // Deserialize
-$objectOne = $serializer->deserialize(file_get_contents('jsondata.json'), Car::class,'json');
-$objectTwo = $serializer->deserialize(file_get_contents('xmldata.xml'), Car::class,'xml');
+// Lees de bestande uit en creeer een object
+// Eerst van uit het json bestand
+$jsonData = file_get_contents('jsondata.json');
+echo Car::fromArray((array) json_decode($jsonData));
 
-echo $objectOne;
 echo PHP_EOL;
-echo $objectTwo;
+//Daarna van uit het xml bestand
+$xmlData = file_get_contents('xmldata.xml');
+echo Car::fromArray((array) simplexml_load_string($xmlData));

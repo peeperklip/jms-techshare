@@ -1,6 +1,7 @@
 {
     "require": {
-        "jms/serializer": "^3.4"
+        "jms/serializer": "^3.4",
+        "ext-json": "*"
     },
     "config": {
         "platform": {
