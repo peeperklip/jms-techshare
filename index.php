@@ -3,9 +3,10 @@
 require_once __DIR__ . '/bootstrap.php';
 
 //Serialize
-$opelAstra = new Car('Opel', 'Astra');
-$jsonData = $serializer->serialize($opelAstra, 'json');
-$xmlData = $serializer->serialize($opelAstra, 'xml');
+$car1 = new Car('Opel', 'Astra');
+$car2 = new Car('Audi', 'A3');
+$jsonData = $serializer->serialize($car1, 'json');
+$xmlData = $serializer->serialize($car2, 'xml');
 
 //Schrijf het resultaat naar een file
 file_put_contents("xmldata.xml", $xmlData);
