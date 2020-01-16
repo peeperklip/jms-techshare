@@ -5,6 +5,7 @@ namespace App;
 use Car;
 use JMS\Serializer\EventDispatcher\EventSubscriberInterface;
 use JMS\Serializer\EventDispatcher\ObjectEvent;
+use JMS\Serializer\EventDispatcher\PreDeserializeEvent;
 use JMS\Serializer\EventDispatcher\PreSerializeEvent;
 
 class CarEventSubscriber implements EventSubscriberInterface
@@ -15,6 +16,7 @@ class CarEventSubscriber implements EventSubscriberInterface
    */
   public static function getSubscribedEvents()
   {
+    //format =>json
     return [
       [
         'event' => DefinedEvents::PRE_SERIALIZE,
@@ -45,28 +47,29 @@ class CarEventSubscriber implements EventSubscriberInterface
   {
     echo __FUNCTION__ . ' ON ' . get_class($event->getObject());
     echo __FILE__ . ':' . __LINE__ . PHP_EOL;
-    echo '<br>';
+    echo '<hr>';
   }
 
   public function onPostSerialize(ObjectEvent $event)
   {
     echo __FUNCTION__ . ' ON ' . get_class($event->getObject());
     echo __FILE__ . ':' . __LINE__ . PHP_EOL;
-    echo '<br>';
+    echo '<hr>';
   }
 
-  public function onPreDeserialize(ObjectEvent $event)
+  public function onPreDeserialize(PreDeserializeEvent $event)
   {
-    echo __FUNCTION__ . ' ON ' . get_class($event->getObject());
-    echo __FILE__ . ':' . __LINE__ . PHP_EOL;
+    echo __FUNCTION__;
     echo '<br>';
+    echo  print_r($event->getData());
+    echo __FILE__ . ':' . __LINE__ . PHP_EOL;
+    echo '<hr>';
   }
 
   public function onPostDeserialize(ObjectEvent $event)
   {
-    echo __FUNCTION__ . ' ON ' . get_class($event->getObject());
+//    echo __FUNCTION__ . ' ON ' . get_class($event->getObject());
     echo __FILE__ . ':' . __LINE__ . PHP_EOL;
-    echo '<br>';
+    echo '<hr>';
   }
-
 }
