@@ -1,0 +1,18 @@
+{
+  "brand":"opel",
+  "model_name": "astra",
+  "currentOwner": {
+    "name":"Some Dude"
+  },
+  "previousOwners": [
+    {
+      "name": "barbara bush"
+    },
+    {
+      "name": "koni chiwa"
+    },
+    {
+      "name": "baka baka"
+    }
+  ]
+}

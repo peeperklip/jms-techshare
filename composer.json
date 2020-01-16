@@ -1,10 +1,7 @@
 {
     "require": {
-        "jms/serializer": "^3.4"
-    },
-    "config": {
-        "platform": {
-            "php": "7.3.*"
-        }
+        "jms/serializer": "^3.4",
+        "doctrine/collections": "^1.6",
+        "symfony/yaml": "^5.0"
     }
 }
