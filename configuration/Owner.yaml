@@ -1,0 +1,7 @@
+Owner:
+  properties:
+    name:
+      type: string
+      serialized_name: name
+      accessor:
+        setter: updateOwner

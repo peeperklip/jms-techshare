@@ -1,0 +1,13 @@
+Car:
+  properties:
+    brand:
+      type: "string"
+      serialized_name: brand
+    model:
+      type: "string"
+      serialized_name: "model_name"
+    owner:
+      type: Owner
+      serialized_name: currentOwner
+    previousOwners:
+      type: ArrayCollection <Owner>
